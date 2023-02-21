@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './styles.module.css'
+import"./index.css"
 
 export const Modal = ({ isValidate, setIsValidate, autoClose }) => {
 
