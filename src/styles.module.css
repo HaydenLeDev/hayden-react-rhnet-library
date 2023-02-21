@@ -1,9 +1,63 @@
-/* add css module styles here (optional) */
+.validateForm {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 320px;
+  height: 84px;
+  overflow: hidden;
+  position: absolute;
+  right: -500px;
+  top: 20px;
+  background-color: #f9f9f9;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.04), 0px 4px 8px rgba(0, 0, 0, 0.06);
+  border-radius: 10px;
+}
 
-.test {
-  margin: 2em;
-  padding: 0.5em;
-  border: 2px solid #000;
-  font-size: 2em;
-  text-align: center;
+.validateForm_v {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 25%;
+  height: 100px;
+  background-color: #729b79;
+  border-radius: 10px 0px 0px 10px;
+  z-index: 1;
+}
+
+.validateForm_v i {
+  color: #f9f9f9;
+  font-size: 28px;
+}
+
+.validateForm_info {
+  position: relative;
+  background-color: #f9f9f9;
+  display: flex;
+  align-items: center;
+  padding-right: 16px;
+  height: 100%;
+  z-index: 3;
+  width: calc(75% - 16px);
+}
+
+.validateForm_info_close {
+  position: absolute;
+  background-color: transparent;
+  border: none;
+  right: 8px;
+  top: 8px;
+}
+
+.validateForm_actif {
+  right: 20px;
+  transition: ease-in-out 0.8s;
+}
+
+.validateForm_nonactif {
+  right: -550px;
+  transition: ease-in-out 0.8s;
+}
+
+.material-icons {
+  color: #011638;
 }
