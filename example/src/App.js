@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from "react"
-import 'hayden-react-rhnet-library/dist/index.css'
+import 'hayden-react-rhnet-library/dist/modal.css'
 import { Modal } from "hayden-react-rhnet-library"
 
 const App = () => {
