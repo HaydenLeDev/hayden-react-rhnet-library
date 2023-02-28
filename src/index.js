@@ -1,30 +1,48 @@
 import React from 'react'
 import { useRef } from "react"
 
+/**
+ * 
+ * @returns 
+ */
 export const Modal = ({ isOpen, setIsOpen, autoClose, text, isNotification, typeNotification }) => {
 
     const modal = useRef(null);
 
+    /**
+     * Closed the modal when it is a notification
+     */
     const onClickCloseNotif = () => {
         setTimeout(() => {
-            modal.current.style.display = 'none'
+            setIsOpen(false)
         }, 800)
-        setIsOpen(false)
         modal.current.style.right = "-550px"
     }
 
+    /**
+     * Closed the modal when it is classic
+     */
     const onClickClose = () => {
         setIsOpen(false)
-        modal.current.style.display = 'none'
     }
 
+    /**
+     * If the component is "autoClose" triggers the automatic closing
+     */
     if (isOpen && autoClose && isNotification) {
         setTimeout(() => {
             modal.current.style.right = "-550px"
+            
         }, 5000);
-        setIsOpen(false)
+        setTimeout(() => {
+            setIsOpen(false)
+        }, 5800);
     }
 
+    /**
+     * Changes the icon based on the notification.
+     * @returns a icone
+     */
     const iconsAlerte = () => {
         switch (typeNotification) {
             case "validate":
@@ -38,6 +56,10 @@ export const Modal = ({ isOpen, setIsOpen, autoClose, text, isNotification, type
         }
     }
 
+    /**
+     * Changes the background color depending on the type of notification.
+     * @returns a color
+     */
     const color = () => {
         switch (typeNotification) {
             case "validate":
@@ -51,6 +73,7 @@ export const Modal = ({ isOpen, setIsOpen, autoClose, text, isNotification, type
         }
     }
 
+    //Different styles
     const styleIsClose = {
         display: 'none',
     }
@@ -113,6 +136,15 @@ export const Modal = ({ isOpen, setIsOpen, autoClose, text, isNotification, type
         padding: "32px 16px 32px 16px",
     }
 
+    const styleConteiner = {
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        width: "100%",
+        height: "100vh",
+        zIndex: 3,
+    }
+
     return isNotification ? (
         <div className={"validateForm"} style={isOpen ? styleValidateFormActif : styleIsClose} ref={modal}>
             <div className="validateForm_v" style={styleValidateForm_v}>
@@ -124,9 +156,11 @@ export const Modal = ({ isOpen, setIsOpen, autoClose, text, isNotification, type
             </div>
         </div>
     ) : (
-        <div style={isOpen ? styleModalClassique : styleIsClose} ref={modal}>
+        <div style={isOpen ? styleConteiner : styleIsClose} ref={modal}>
+        <section style={styleModalClassique}>
             <p>{text}</p>
             <button onClick={onClickClose} className="validateForm_info_close" style={styleClose}><i className="material-icons" style={{ color: "#011638" }}>close</i></button>
+        </section>
         </div>
     )
 

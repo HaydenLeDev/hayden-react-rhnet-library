@@ -14,15 +14,16 @@ npm install --save hayden-react-rhnet-library
 ## Usage
 
 
-### Example of the code for the Modal
+### Example of the code for the Modal Classique
 ```jsx
 import React from 'react'
 import { useState } from "react"
 import Modal from 'hayden-react-rhnet-library'
 
 const Example = () => {
-  const [isValidate, setIsValidate] = useState(true)
-  return <Modal isValidate={isValidate} setIsValidate={setIsValidate} />
+  const [isOpen, setIsOpen] = useState(true)
+
+  return <Modal isOpen={isOpen} setIsOpen={setIsOpen} />
 }
 
 ```
