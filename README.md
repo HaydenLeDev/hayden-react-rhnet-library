@@ -16,25 +16,33 @@ npm install --save hayden-react-rhnet-library
 
 ### Example of the code for the Modal
 ```jsx
-import React, { Component } from 'react'
-
+import React from 'react'
+import { useState } from "react"
 import Modal from 'hayden-react-rhnet-library'
-import 'hayden-react-rhnet-library/dist/index.css'
 
-class Example extends Component {
-  render() {
-    return <Modal />
-  }
+const Example = () => {
+  const [isValidate, setIsValidate] = useState(true)
+  return <Modal isValidate={isValidate} setIsValidate={setIsValidate} />
 }
+
 ```
 ### Modal component props
 
 #### text 
-####  isOpen={bool}
+Request a string. Injects the text you want into the component.
+####  isOpen
+Request a boolean. True: opens the modal. False: closes the modal.
 ####  setIsOpen= function pour mettre a jour isOpen
-####  autoClose={bool}
-####  isNotification={bool}
-####  typeNotification: {"validate"} || {"alert"} || {"refuse"} 
+Sends the state function to update the "isOpen" variable.
+####  autoClose
+Request a boolean. This option closes the modal after 5 seconds. True: activates the timer. False: disables the timer.
+####  isNotification
+Request a boolean. The component is then displayed as a notification on the right side of the screen. True: The component is a notification. False: The component displays normally.
+####  typeNotification: {"validate"} || {"alert"} || {"error"} 
+Request a string. 
+- "validate" allows to have a positive notification.
+- "alert" makes a notification to warn the user.
+- "error" signals to the user that there is an error.
 
 ## License
 

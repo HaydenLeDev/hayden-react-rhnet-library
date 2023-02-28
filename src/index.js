@@ -1,5 +1,4 @@
 import React from 'react'
-import "./index.css"
 
 export const Modal = ({ isOpen, setIsOpen, autoClose, text }) => {
 
@@ -9,11 +8,14 @@ export const Modal = ({ isOpen, setIsOpen, autoClose, text }) => {
         setIsOpen(false)
     }
 
-    if (isValidate && autoClose) {
+    if (isOpen && autoClose) {
         setTimeout(() => {
             setIsOpen(false);
         }, 5000);
     }
+
+    //Style: 
+    
 
     return (
         <div className={classValidateForm}>
