@@ -13,7 +13,6 @@ const App = () => {
   return <Modal
     isOpen={isOpen}
     setIsOpen={setIsOpen}
-    autoClose={true}
     text={"Employé créer"}
     isNotification={false}
     typeNotification="validate"

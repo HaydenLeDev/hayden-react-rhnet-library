@@ -37,6 +37,10 @@ export const Modal = ({ isOpen, setIsOpen, autoClose, text, isNotification, type
         setTimeout(() => {
             setIsOpen(false)
         }, 5800);
+    } else if (isOpen && autoClose && !isNotification){
+        setTimeout(() => {
+            setIsOpen(false)
+        }, 5000);
     }
 
     /**
