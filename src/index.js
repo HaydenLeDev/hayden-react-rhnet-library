@@ -1,31 +1,31 @@
 import React from 'react'
-import"./index.css"
+import "./index.css"
 
-export const Modal = ({ isValidate, setIsValidate, autoClose }) => {
+export const Modal = ({ isOpen, setIsOpen, autoClose, text }) => {
 
-  const classValidateForm = isValidate ? "validateForm validateForm_actif" : "validateForm validateForm_nonactif"
+    const classValidateForm = isOpen ? "validateForm validateForm_actif" : "validateForm validateForm_nonactif"
 
-  const onClick = () => {
-      setIsValidate(false)
-  }
-  
-  if (isValidate && autoClose) {
-      setTimeout(() => {
-          setIsValidate(false);
-      }, 5000);
-  }
+    const onClick = () => {
+        setIsOpen(false)
+    }
 
-  return (
-      <div className={classValidateForm}>
-          <div className="validateForm_v">
-              <i className='fas fa-check-circle'></i>
-          </div>
-          <div className="validateForm_info">
-              <p>Employee create !</p>
-              <button onClick={onClick} className="validateForm_info_close"><i className="material-icons">close</i></button>
-          </div>
-      </div>
-  )
+    if (isValidate && autoClose) {
+        setTimeout(() => {
+            setIsOpen(false);
+        }, 5000);
+    }
+
+    return (
+        <div className={classValidateForm}>
+            <div className="validateForm_v">
+                <i className='fas fa-check-circle'></i>
+            </div>
+            <div className="validateForm_info">
+                <p>{text}</p>
+                <button onClick={onClick} className="validateForm_info_close"><i className="material-icons">close</i></button>
+            </div>
+        </div>
+    )
 }
 
 export default Modal
