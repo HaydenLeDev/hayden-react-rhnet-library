@@ -1,7 +1,7 @@
 import React from 'react'
 import { useRef } from "react"
 
-export const Modal = ({ isOpen, autoClose, text, isNotification, typeNotification }) => {
+export const Modal = ({ isOpen, setIsOpen, autoClose, text, isNotification, typeNotification }) => {
 
     const modal = useRef(null);
 
@@ -9,10 +9,12 @@ export const Modal = ({ isOpen, autoClose, text, isNotification, typeNotificatio
         setTimeout(() => {
             modal.current.style.display = 'none'
         }, 800)
+        setIsOpen(false)
         modal.current.style.right = "-550px"
     }
 
     const onClickClose = () => {
+        setIsOpen(false)
         modal.current.style.display = 'none'
     }
 
@@ -20,6 +22,7 @@ export const Modal = ({ isOpen, autoClose, text, isNotification, typeNotificatio
         setTimeout(() => {
             modal.current.style.right = "-550px"
         }, 5000);
+        setIsOpen(false)
     }
 
     const iconsAlerte = () => {
@@ -98,7 +101,8 @@ export const Modal = ({ isOpen, autoClose, text, isNotification, typeNotificatio
         top: "8px"
     }
 
-    const styleModal = {
+    const styleModalClassique = {
+        display: "flex",
         position: "relative",
         zIndex: 10,
         backgroundColor: "#f9f9f9",
@@ -108,7 +112,6 @@ export const Modal = ({ isOpen, autoClose, text, isNotification, typeNotificatio
         boxShadow: "0px 0px 4px rgba(0, 0, 0, 0.04), 0px 4px 8px rgba(0, 0, 0, 0.06)",
         padding: "32px 16px 32px 16px",
     }
-
 
     return isNotification ? (
         <div className={"validateForm"} style={isOpen ? styleValidateFormActif : styleIsClose} ref={modal}>
@@ -120,14 +123,12 @@ export const Modal = ({ isOpen, autoClose, text, isNotification, typeNotificatio
                 <button onClick={onClickCloseNotif} className="validateForm_info_close" style={styleClose}><i className="material-icons" style={{ color: "#011638" }}>close</i></button>
             </div>
         </div>
+    ) : (
+        <div style={isOpen ? styleModalClassique : styleIsClose} ref={modal}>
+            <p>{text}</p>
+            <button onClick={onClickClose} className="validateForm_info_close" style={styleClose}><i className="material-icons" style={{ color: "#011638" }}>close</i></button>
+        </div>
     )
-        :
-        (
-            <div style={styleModal} ref={modal}>
-                <p>{text}</p>
-                <button onClick={onClickClose} className="validateForm_info_close" style={styleClose}><i className="material-icons" style={{ color: "#011638" }}>close</i></button>
-            </div>
-        )
 
 }
 

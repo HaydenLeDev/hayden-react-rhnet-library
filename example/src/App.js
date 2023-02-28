@@ -1,15 +1,22 @@
 import React from 'react'
 import Modal from "hayden-react-rhnet-library"
+import { useState } from 'react'
 
+
+/**
+ * Example of the modal component.
+ * @returns Modal
+ */
 const App = () => {
-  const isOpen = true
+  const [isOpen, setIsOpen] = useState(true)
 
-  return <Modal 
-  isOpen={isOpen} 
-  autoClose={true} 
-  text={"Employé créer"} 
-  isNotification={false}
-  typeNotification="validate"
+  return <Modal
+    isOpen={isOpen}
+    setIsOpen={setIsOpen}
+    autoClose={true}
+    text={"Employé créer"}
+    isNotification={false}
+    typeNotification="validate"
   />
 
 }
