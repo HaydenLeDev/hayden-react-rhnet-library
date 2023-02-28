@@ -9,13 +9,13 @@ import { useState } from 'react'
  */
 const App = () => {
   const [isOpen, setIsOpen] = useState(true)
-
+  const corpsHtml = <div><h1>Hello World</h1><p>I m Loic</p></div>
   return <Modal
     isOpen={isOpen}
     setIsOpen={setIsOpen}
     text={"Employé créer"}
     isNotification={false}
-    typeNotification="validate"
+    corpsHtml={corpsHtml}
   />
 
 }

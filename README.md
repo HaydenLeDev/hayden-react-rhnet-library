@@ -1,4 +1,4 @@
-# hayden-react-rhnet-library
+# Plugin Modal for HRnet
 
 > Library made for the HRnet application. 
 > In this library you will find the modal.
@@ -22,8 +22,8 @@ import Modal from 'hayden-react-rhnet-library'
 
 const Example = () => {
   const [isOpen, setIsOpen] = useState(true)
-
-  return <Modal isOpen={isOpen} setIsOpen={setIsOpen} text={"Hello world !"} isNotification={false} />
+  const corpsHtml = <div><h1>Hello World</h1><p>I love dev</p></div>
+  return <Modal isOpen={isOpen} setIsOpen={setIsOpen} text={"Hello world !"} isNotification={false} corpsHtml={corpsHtml}/>
 }
 
 ```
@@ -59,6 +59,8 @@ Request a string.
 - "validate" allows to have a positive notification.
 - "alert" makes a notification to warn the user.
 - "error" signals to the user that there is an error.
+#### corpsHtml
+Requests a variable containing html. This is displayed when you open a classic modal.
 
 ## License
 

@@ -2,10 +2,10 @@ import React from 'react'
 import { useRef } from "react"
 
 /**
- * 
- * @returns 
+ * Modal component, this allows you to display a modal in a different way. See the documentation for more information.
+ * @returns Modal
  */
-export const Modal = ({ isOpen, setIsOpen, autoClose, text, isNotification, typeNotification }) => {
+export const Modal = ({ isOpen, setIsOpen, autoClose, text, isNotification, typeNotification, corpsHtml }) => {
 
     const modal = useRef(null);
 
@@ -32,12 +32,12 @@ export const Modal = ({ isOpen, setIsOpen, autoClose, text, isNotification, type
     if (isOpen && autoClose && isNotification) {
         setTimeout(() => {
             modal.current.style.right = "-550px"
-            
+
         }, 5000);
         setTimeout(() => {
             setIsOpen(false)
         }, 5800);
-    } else if (isOpen && autoClose && !isNotification){
+    } else if (isOpen && autoClose && !isNotification) {
         setTimeout(() => {
             setIsOpen(false)
         }, 5000);
@@ -161,13 +161,12 @@ export const Modal = ({ isOpen, setIsOpen, autoClose, text, isNotification, type
         </div>
     ) : (
         <div style={isOpen ? styleConteiner : styleIsClose} ref={modal}>
-        <section style={styleModalClassique}>
-            <p>{text}</p>
-            <button onClick={onClickClose} className="validateForm_info_close" style={styleClose}><i className="material-icons" style={{ color: "#011638" }}>close</i></button>
-        </section>
+            <section style={styleModalClassique}>
+                {corpsHtml}
+                <button onClick={onClickClose} className="validateForm_info_close" style={styleClose}><i className="material-icons" style={{ color: "#011638" }}>close</i></button>
+            </section>
         </div>
     )
-
 }
 
 export default Modal

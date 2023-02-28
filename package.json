@@ -1,6 +1,6 @@
 {
-  "name": "hayden-react-rhnet-library",
-  "version": "1.0.6",
+  "name": "plugin-modal-hrnet",
+  "version": "1.0.9",
   "description": "Librairie pour l'application hrnet. Dans celle-ci vous retrouverez le modal",
   "author": "HaydenLeDev",
   "license": "MIT",
