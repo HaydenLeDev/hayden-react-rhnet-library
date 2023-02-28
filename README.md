@@ -29,10 +29,10 @@ class Example extends Component {
 ```
 ### Modal component props
 
-text="Text example" 
-isOpen={bool}
-setIsOpen= function pour mettre a jour isOpen
-autoClose={bool}
+-text="Text example" 
+-isOpen={bool}
+-setIsOpen= function pour mettre a jour isOpen
+-autoClose={bool}
 
 
 ## License
