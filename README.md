@@ -35,7 +35,7 @@ Request a boolean. True: opens the modal. False: closes the modal.
 ####  setIsOpen= function pour mettre a jour isOpen
 Sends the state function to update the "isOpen" variable.
 ####  autoClose
-Request a boolean. This option closes the modal after 5 seconds. True: activates the timer. False: disables the timer.
+Request a boolean. This option closes the modal after 5 seconds. True: activates the timer. False: disables the timer. /!\ "autoClose" only works if the component is "isNotification"
 ####  isNotification
 Request a boolean. The component is then displayed as a notification on the right side of the screen. True: The component is a notification. False: The component displays normally.
 ####  typeNotification: {"validate"} || {"alert"} || {"error"} 
