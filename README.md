@@ -23,7 +23,7 @@ import Modal from 'hayden-react-rhnet-library'
 const Example = () => {
   const [isOpen, setIsOpen] = useState(true)
   const corpsHtml = <div><h1>Hello World</h1><p>I love dev</p></div>
-  return <Modal isOpen={isOpen} setIsOpen={setIsOpen} text={"Hello world !"} isNotification={false} corpsHtml={corpsHtml}/>
+  return <Modal isOpen={isOpen} setIsOpen={setIsOpen} isNotification={false} corpsHtml={corpsHtml}/>
 }
 
 ```
@@ -45,7 +45,7 @@ const Example = () => {
 ### Modal component props
 
 #### text 
-Request a string. Injects the text you want into the component.
+Request a string. Injects the text you want into the component. Only works for notifications. If you want to put text in a classic modal use "corpsHtml"
 ####  isOpen
 Request a boolean. True: opens the modal. False: closes the modal.
 ####  setIsOpen= function pour mettre a jour isOpen
